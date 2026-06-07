@@ -4,6 +4,7 @@ Purpose: GCP Cloud Asset Inventory scanner.
 """
 from google.cloud import asset_v1
 
+
 def get_chargeable_services(project_id):
     print(f"\n[*] Scanning for HIGH-COST active services in: {project_id}...")
     client = asset_v1.AssetServiceClient()

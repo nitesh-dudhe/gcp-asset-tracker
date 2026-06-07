@@ -156,6 +156,18 @@ Execute the main Python script. It will automatically pick up your `gcloud` auth
 python3 main.py
 ```
 
+
+```Screenshots
+<img src="screeshots/gcp-billing-01.png" width="400" height="600" alt="GCP Project Name">
+
+<img src="screeshots/gcp-billing-02.png" width="400" height="600" alt="VM instance running">
+
+<img src="screeshots/gcp-billing-03.png" width="400" height="600" alt="VM instance detail Post script execution">
+
+<img src="screeshots/gcp-billing-04.png" width="400" height="600" alt="Post VM deletion & cleanup Execution of the script">
+```
+
+
 ---
 
 ## 💰 GCP Provisioned Services Baseline Costs

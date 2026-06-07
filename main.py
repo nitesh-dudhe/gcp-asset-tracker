@@ -21,7 +21,6 @@ def main():
     print("3. Exit")
     
     choice = input("\nChoice (1/2/3): ").strip()
-    
     if choice == '1':
         assets = get_chargeable_services(project_id)
         display_and_suggest_deletion(assets, project_id)
