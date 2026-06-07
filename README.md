@@ -158,13 +158,13 @@ python3 main.py
 
 
 ```Screenshots
-<img src="screeshots/gcp-billing-01.png" width="400" height="600" alt="GCP Project Name">
+![GCP Project Name](screenshots/gcp-billing-01.png)
 
-<img src="screeshots/gcp-billing-02.png" width="400" height="600" alt="VM instance running">
+![VM instance running](screenshots/gcp-billing-02.png)
 
-<img src="screeshots/gcp-billing-03.png" width="400" height="600" alt="VM instance detail Post script execution">
+![VM instance detail Post script execution](screenshots/gcp-billing-03.png)
 
-<img src="screeshots/gcp-billing-04.png" width="400" height="600" alt="Post VM deletion & cleanup Execution of the script">
+![Post VM deletion & cleanup Execution of the script](screenshots/gcp-billing-04.png)
 ```
 
 
