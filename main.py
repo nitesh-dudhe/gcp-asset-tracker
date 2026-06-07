@@ -27,26 +27,31 @@ def main():
         display_and_suggest_deletion(assets, project_id)
         
     elif choice == '2':
-        print("\nSelect timeframe:")
-        print("A. 7 Days")
-        print("B. 1 Month (30 Days)")
-        print("C. 3 Months (90 Days)")
+        print("[!!] Billing CODE is UNDER PROGRESS [!!]")
+#        print("\n[!] Billing data export is not enabled by default.")
+#        print("    Please enable it in the BigQuery console.")
+#        print("    See: https://cloud.google.com/billing/docs/how-to/export-data-bigquery")
+#        input("\n[!] Press Enter after enabling billing export...")
+#        print("\nSelect timeframe:")
+#        print("A. 7 Days")
+#        print("B. 1 Month (30 Days)")
+#        print("C. 3 Months (90 Days)")
         
-        time_choice = input("Choice (A/B/C): ").strip().upper()
-        days_map = {'A': 7, 'B': 30, 'C': 90}
+#        time_choice = input("Choice (A/B/C): ").strip().upper()
+#        days_map = {'A': 7, 'B': 30, 'C': 90}
         
-        if time_choice not in days_map:
-            print("Invalid choice.")
-            sys.exit(1)
+#        if time_choice not in days_map:
+#            print("Invalid choice.")
+#            sys.exit(1)
             
-        days = days_map[time_choice]
+#        days = days_map[time_choice]
         
-        print("\n[!] BigQuery details required (found in your BigQuery console):")
-        dataset_id = input("Enter BigQuery Dataset ID (e.g., billing_data): ").strip()
-        table_name = input("Enter Table Name (e.g., gcp_billing_export_v1_XXXX): ").strip()
+#        print("\n[!] BigQuery details required (found in your BigQuery console):")
+#        dataset_id = input("Enter BigQuery Dataset ID (e.g., billing_data): ").strip()
+#        table_name = input("Enter Table Name (e.g., gcp_billing_export_v1_XXXX): ").strip()
         
-        df = get_billing_data(project_id, dataset_id, table_name, days)
-        generate_pdf(df, days, project_id)
+#        df = get_billing_data(project_id, dataset_id, table_name, days)
+#        generate_pdf(df, days, project_id)
         
     else:
         print("Exiting...")

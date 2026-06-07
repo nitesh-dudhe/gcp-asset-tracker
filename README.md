@@ -25,6 +25,44 @@ gcp-asset-billing-tracker/
 ```
 ---
 
+#### **This is how it will work:**
+
+It visually maps out the sequential execution flow from your local machine/CI platform to the Google Cloud APIs and your final metrics outputs.
+
+```Architechture Diagram
+    +--------------------------------------------------------+
+    |                    LOCAL TERMINAL / CI                 |
+    |  [main.py] Application Default Credentials Auth (ADC)  |
+    +--------------------------------------------------------+
+                                |
+       +------------------------+------------------------+
+       | (Option 1)                                      | (Option 2)
+       v                                                 v
++-----------------------------+               +-----------------------------+
+|    CLOUD ASSET INVENTORY    |               |      BIGQUERY ENGINE        |
+| [cloudasset.googleapis.com] |               |  [bigquery.googleapis.com]  |
++-----------------------------+               +-----------------------------+
+       |                                                 |
+       | Global RPC Metadata Dump                        | Active Table Inspection
+       | (Avoids region-by-region scanning)              | (Auto-discovers dataset maps)
+       v                                                 v
+    +-----------------------------+               +-----------------------------+
+    |    ASSET PARSING ENGINE     |               |  BILLING ANALYTICS MODULE   |
+    |   - Strips ephemeral items  |               |   - Queries rolling dates   |
+    |   - Flags 'Danger Zone' cost|               |     (7 / 30 / 90 days)      |
+    |     leaks (VMs, SQL, LBs)   |               |   - Extracts cost metrics   |
+    +-----------------------------+               +-----------------------------+
+       |                                                 |
+       +------------------------+------------------------+
+                                |
+                                v
+    +--------------------------------------------------------+
+    |                     OUTPUT LAYER                       |
+    |  - Interactive CLI Tables & Manual Tear-down Links     |
+    |  - Formatted PDF Accounting Logs (/core/pdf_report.py) |
+    +--------------------------------------------------------+
+```
+
 #### **1. Google Cloud SDK Installation**
 
 We will use the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) (`gcloud`) to handle authentication and API interactions.
@@ -71,7 +109,24 @@ export GOOGLE_APPLICATION_CREDENTIALS="./gcp-credentials.json"
 ```
 
 ---
-### 2.1 Step-by-Step Execution Guide
+
+#### **3. Step-by-Step Installation Guide**
+
+Clone the repository, initialize your virtual environment, and install the verified dependencies:
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/gcp-asset-billing-tracker.git
+cd gcp-asset-billing-tracker
+
+# Create and activate a virtual environment
+python3 -m venv gcp-venv
+source gcp-venv/bin/activate
+
+# Install required packages
+pip install -r requirements.txt
+```
+
 Follow these commands to set up your environment and run the script.
 
 **Create a Virtual Environment (Recommended):**

@@ -3,6 +3,7 @@ __pycache__/
 .env
 *.pdf
 *-credentials.json
+*billing-budget*.json
 gcp-venv/
 *.java
 .python-version
