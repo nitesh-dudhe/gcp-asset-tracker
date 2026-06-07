@@ -156,16 +156,16 @@ Execute the main Python script. It will automatically pick up your `gcloud` auth
 python3 main.py
 ```
 
-
-```Screenshots
 ![GCP Project Name](screenshots/gcp-billing-01.png)
+
 
 ![VM instance running](screenshots/gcp-billing-02.png)
 
+
 ![VM instance detail Post script execution](screenshots/gcp-billing-03.png)
 
-![Post VM deletion & cleanup Execution of the script](screenshots/gcp-billing-04.png)
-```
+
+![VM deleteion & Cleanup script execution](screenshots/gcp-billing-04.png)
 
 
 ---
