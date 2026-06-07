@@ -25,14 +25,6 @@ gcp-asset-billing-tracker/
 ```
 ---
 
-### Python version requirement
-
-
-
-
-
-
-
 #### **1. Google Cloud SDK Installation**
 
 We will use the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) (`gcloud`) to handle authentication and API interactions.
@@ -111,8 +103,38 @@ python3 main.py
 
 ---
 
+## 💰 GCP Provisioned Services Baseline Costs
 
-### GCP Cost Estimator
+Because provision-based resources incur charges 24/7 simply for existing (even with zero incoming traffic), use this quick baseline guide to estimate your monthly exposure before spinning up environments:
+
+| Service Type | Specific Resource Component | Estimated Base Cost | Billing Metric |
+| :--- | :--- | :--- | :--- |
+| **Compute Engine** | `e2-standard-2` Virtual Machine | **$48.00 / month** | Per active instance |
+| **Cloud SQL** | Standard Database Instance | **$15.00 / month** | Per provisioned instance |
+| **Load Balancer** | External HTTP(S) Forwarding Rule | **$18.00 / month** | First 5 forwarding rules |
+| **Cloud Storage** | Standard Storage Tier | **$20.00 / month** | Per Terabyte (TB) stored |
+| **Network IPs** | Unused Reserved Static IP | **$3.65 / month** | Hourly penalty when unassigned |
+
+> ⚠️ **The Cloud Learner Rule of Thumb:** > Always execute the script asset scanner (`python3 main.py`) before logging off for the day. A single forgotten Load Balancer or idle VM left running for a weekend can completely drain your free trial credits!
+
+---
+
+## 📊 GCP Provisioned Cost Estimator
+
+Don't want to calculate costs by hand? Use our interactive cost calculator to simulate monthly GCP resource costs before writing your Terraform files.
+
+<a href="https://nitesh-dudhe.github.io/devops-journey/gcp-interactive-cost-estimator.html" target="_self">
+  <img src="https://img.shields.io/badge/GCP_Cost_Estimator-Interactive_App-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Launch Live Estimator">
+</a>
+
+
+---
+
+## 📊 Interactive GCP Cost Estimator (Local App)
+
+To run the interactive cost estimator locally, save the code block below as an `index.html` file on your machine and open it in any browser.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -219,7 +241,7 @@ python3 main.py
 
 </body>
 </html>
-
+```
 
 ### **Pre-Flight Execution Checklist**
 
